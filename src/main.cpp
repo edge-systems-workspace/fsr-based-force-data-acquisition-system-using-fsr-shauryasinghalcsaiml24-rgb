@@ -53,6 +53,5 @@ void loop() {
     } else {
         Serial.println("No Significant Pressure.");
     }
-
     delay(500);
 }
