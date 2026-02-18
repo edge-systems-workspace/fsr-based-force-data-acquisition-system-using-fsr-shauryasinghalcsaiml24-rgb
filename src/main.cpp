@@ -33,3 +33,26 @@ void setup() {
     Serial.begin(9600);
     Serial.println("=== FSR Force Measurement System Initialized ===");
 }
+/**
+ * @brief Main loop: read FSR value and print status to Serial.
+ *
+ * Reads the analog value from the FSR sensor on `FSR_PIN`, prints the raw ADC
+ * value and a simple thresholded status message. Loop delays 500 ms between reads.
+ *
+ * @return void
+ */
+void loop() {
+
+    fsrValue = analogRead(FSR_PIN);
+
+    Serial.print("Raw ADC Value: ");
+    Serial.println(fsrValue);
+
+    if (fsrValue > 100) {
+        Serial.println("Pressure Detected!");
+    } else {
+        Serial.println("No Significant Pressure.");
+    }
+
+    delay(500);
+}
